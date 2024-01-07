@@ -27,21 +27,21 @@ public class JwtTokenProvider {
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
-    public boolean validateToken(String authToken) {
+    public boolean validateToken(String authToken) throws ExpiredJwtException, UnsupportedJwtException, MalformedJwtException, SignatureException, IllegalArgumentException {
+
         try{
             Jwts.parserBuilder().setSigningKey(getSignInKey()).build().parseClaimsJws(authToken);
             return true;
-        }
-        catch (MalformedJwtException ex) {
-            throw new CustomRuntimeException(ex.getMessage());
-        } catch (ExpiredJwtException ex) {
-            throw new CustomRuntimeException(ex.getMessage());
-        } catch (UnsupportedJwtException ex) {
-            throw new CustomRuntimeException(ex.getMessage());
-        } catch (IllegalArgumentException ex) {
-            throw new CustomRuntimeException(ex.getMessage());
-        } catch (SignatureException ex){
-            throw new CustomRuntimeException(ex.getMessage());
+        }catch (ExpiredJwtException ex){
+            throw ex;
+        }catch (UnsupportedJwtException ex){
+            throw ex;
+        }catch (MalformedJwtException ex){
+            throw ex;
+        }catch (SignatureException ex){
+            throw ex;
+        }catch (IllegalArgumentException ex){
+            throw ex;
         }
     }
 
