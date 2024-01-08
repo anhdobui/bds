@@ -37,6 +37,12 @@ public class UserEntity extends BaseEntity {
     @Column(name = "email", unique = true)
     private String email;
 
+    @ManyToMany(mappedBy = "staffs")
+    private List<CustomerEntity> customers;
+
+    @ManyToMany(mappedBy = "staffs")
+    private List<BuildingEntity> buildings;
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch = FetchType.LAZY)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id", nullable = false),

@@ -1,12 +1,16 @@
 package com.example.bds.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 @Table(name = "building")
+@Getter
+@Setter
 public class BuildingEntity extends BaseEntity {
     @Column(name="name")
     private String name;

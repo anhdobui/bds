@@ -9,4 +9,6 @@ public class SystemConstant {
     public static final String ROLE_NOT_FOUND = "Role not found";
     public static final String ERROR_USERNAME_EXIST = "Username has already existed";
 
+    public static final String ONE_EQUAL_ONE = " where 1 = 1";
+    public static final String BUILDING_NOT_FOUND = "Không tìm thấy tòa nhà";
 }

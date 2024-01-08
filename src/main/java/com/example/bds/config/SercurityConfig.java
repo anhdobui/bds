@@ -34,6 +34,8 @@ public class SercurityConfig {
                  .authorizeHttpRequests(request -> {
                      request
                              .requestMatchers("/api/auth/**").permitAll()
+                             .requestMatchers("/api/building/**","/api/building").permitAll()
+                             .requestMatchers("/api/district","/api/user/all-staff").permitAll()
                              .anyRequest().authenticated();
                  })
                  .authenticationProvider(authenticationProvider)
