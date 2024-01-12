@@ -34,8 +34,19 @@ module.exports = {
     node: true
   },
   rules: {
+    '@typescript-eslint/no-explicit-any': 'warn',
     // Tắt rule yêu cầu import React trong file jsx
     'react/react-in-jsx-scope': 'off',
+    // Tắt cảnh báo khi không sử dụng một biến
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: false,
+        argsIgnorePattern: '^_'
+      }
+    ],
     // Cảnh báo khi thẻ <a target='_blank'> mà không có rel="noreferrer"
     'react/jsx-no-target-blank': 'warn',
     // Tăng cường một số rule prettier (copy từ file .prettierrc qua)

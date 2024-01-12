@@ -12,7 +12,7 @@ import java.util.List;
 public class UserConverter {
     @Autowired
     private ModelMapper modelMapper;
-    
+
     public StaffDTO convertToStaffDto(UserEntity entity, List<Long> staffIdsOfBuilding){
         StaffDTO result = new StaffDTO();
         result.setFullName(entity.getFullName());
